@@ -1,21 +1,23 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 # Create your views here.
 # showcase/views.py
 from django.shortcuts import render
-
-def home(request):
-    context = {
-        'model_name': 'Super AI Model',
-        'model_description': 'Our latest AI model is a groundbreaking innovation in the field of artificial intelligence. It offers exceptional performance and accuracy in various applications.',
-        'features': [
-            'Natural Language Processing',
-            'Image Recognition',
-            'Predictive Analytics',
-            'Voice Assistance',
-            'Automated Decision Making'
-        ]
-    }
-    return render(request, 'SummarizeIT/home.html', context)
 def SummarizeIT(request):
     return render(request, 'SummarizeIT/summarizeIT.html')
+# home/views.py
+def projects(request):
+    return render(request, 'SummarizeIT/projects.html')
+
+def about(request):
+    return render(request, "SummarizeIT/about.html")
+
+def team(request):
+    return render(request, "SummarizeIT/team.html")
+
+def contact(request):
+    return render(request, "SummarizeIT/contact.html")
+
+def rohit(request):
+    return HttpResponse("hello Sir, my master you are the almighty")
+
