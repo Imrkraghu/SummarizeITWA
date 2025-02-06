@@ -9,5 +9,6 @@ urlpatterns = [
     path("projects/", views.projects, name="projects"),
     path("team/", views.team, name="team"),
     path("about/", views.about, name="about"),
-    path("contact/", views.contact, name="contact")
+    path("contact/", views.contact, name="contact"),
+    path('start_recording', views.start_recording, name='start_recording'),
 ]

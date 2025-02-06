@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SummariseIT</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body, h1, h2, h3, h4, h5, h6 {font-family: "Lato", sans-serif}
-        .w3-bar, h1, button {font-family: "Montserrat", sans-serif}
-        .fa-anchor, .fa-coffee {font-size: 200px}
-
         /* Gradient background for the whole page */
         body {
             font-family: 'Arial', sans-serif;
@@ -37,8 +29,8 @@
             width: 80%;
             max-width: 600px;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(15px); 
             border-radius: 20px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             color: #fff;
@@ -92,17 +84,11 @@
             background: linear-gradient(45deg, #2575fc, #6a11cb);
         }
 
-        .btn:active {
-            transform: scale(0.95);
-        }
+        .btn:active { transform: scale(0.95); }
 
-        .btn-record {
-            background: linear-gradient(45deg, #4CAF50, #45a049);
-        }
+        .btn-record { background: linear-gradient(45deg, #4CAF50, #45a049); }
 
-        .btn-pause {
-            background: linear-gradient(45deg, #f44336, #d32f2f);
-        }
+        .btn-pause { background: linear-gradient(45deg, #f44336, #d32f2f); }
 
         .text-area {
             width: 100%;
@@ -117,6 +103,7 @@
             box-sizing: border-box;
             transition: all 0.3s ease;
             background-color: #fff;
+            color: #333;
         }
 
         .text-area:focus {
@@ -137,60 +124,46 @@
             to { opacity: 1; }
         }
 
-        .developer-section a {
-            color: #fff;
-            text-decoration: none;
-        }
+        .developer-section a { color: #fff; text-decoration: none; }
 
-        .developer-section a:hover {
-            text-decoration: underline;
-        }
-
-        .fadeInBackground {
-            animation: fadeIn 2s ease-out;
-        }
+        .developer-section a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="w3-top">
-        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-            <a href="{% url 'SummarizeIT' %}" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-            <a href="{% url 'about' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
-            <a href="{% url 'team' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Team</a>
-            <a href="{% url 'projects' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Projects</a>
-            <a href="{% url 'contact' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
-        </div>
-
-        <!-- Navbar on small screens -->
-        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-            <a href="{% url 'about' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
-            <a href="{% url 'team' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Team</a>
-            <a href="{% url 'projects' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Projects</a>
-            <a href="{% url 'contact' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
-        </div>
+<div class="content-wrapper fadeInBackground">
+    <h1>SummariseIT</h1>
+    <div class="button-container">
+        <button class="btn btn-record" id="recordBtn">Record</button>
+        <button class="btn btn-pause" id="pauseBtn" disabled>Pause</button>
     </div>
-
-    <!-- Header -->
-    <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-        <h1 class="w3-margin w3-jumbo">AI-ML</h1>
-        <p class="w3-xlarge">The Future of Artificial Intelligence and Machine Learning</p>
-        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
-    </header>
-
-    <!-- Content Wrapper -->
-    <div class="content-wrapper fadeInBackground">
-        <h1>SummariseIT</h1>
-        <div class="button-container">
-            <button class="btn btn-record" id="recordBtn">Record</button>
-            <button class="btn btn-pause" id="pauseBtn" disabled>Pause</button>
-        </div>
-        <textarea class="text-area" id="transcription" placeholder="Transcribed words will appear here..." readonly></textarea>
-
-        <div class="developer-section">
-            <p>Developed by: <a href="https://www.linkedin.com/in/your-profile" target="_blank">Nishant</a>, <a href="https://www.linkedin.com/in/your-profile" target="_blank">Rohit</a>, <a href="https://www.linkedin.com/in/your-profile" target="_blank">Vishal Pal</a>, <a href="https://www.linkedin.com/in/your-profile" target="_blank">Seema Rana</a>, <a href="https://www.linkedin.com/in/your-profile" target="_blank">Kritika</a>, <a href="https://www.linkedin.com/in/your-profile" target="_blank">Uma Devi</a></p>
-        </div>
+    <textarea class="text-area" id="transcription" placeholder="Transcribed words will appear here..." readonly></textarea>
+    <div class="developer-section">
+        <p>Developed by: <a href="https://www.linkedin.com/in/your-profile" target="_blank">Nishant</a>,
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">Rohit</a>,
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">Vishal Pal</a>,
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">Seema Rana</a>,
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">Kritika</a>,
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">Uma Devi</a></p>
     </div>
+</div>
 
-</body></html>
+<script>
+        let isRecording = false;
+        const recordBtn = document.getElementById('recordBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const transcriptionArea = document.getElementById('transcriptionArea');
+
+        recordBtn.addEventListener('click', function () {
+            window.location.href = "{% url 'start_recording' %}";
+        },
+    pauseBtn.addEventListener('click', function () {
+    if (isRecording) {
+        isRecording = false;
+        recordBtn.disabled = false;
+        pauseBtn.disabled = true;
+        transcriptionArea.value = "Recording paused.";
+    }
+}));
+</script>
+</body>
+</html>
